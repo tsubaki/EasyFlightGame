@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+
+</style>
+<title>戦闘機モデルを作ろう</title>
+
+</head>
+<body>
+<h1>戦闘機モデルを作ろう</h1>
+
+<p>さて、今までの操作を使って簡単なモデルを作成してみましょう。本来はUnityではなく専用のモデリングツールを使用したり、アセットストアからデータをダウンロードするのが一番良いのですが、今回は練習も兼ねて作成します。</p>
+
+<p><img  src="%E6%88%A6%E9%97%98%E6%A9%9F.png" alt="戦闘機" /></p>
+
+<h2>新しいシーンを作成する</h2>
+
+<p>説明していませんでしたが、今までは「遊び場」のシーンで作業を行ってきました。シーンとは、仮想空間の単位です。遊び場のシーンで継続して作成しても良いのですが、既に色々と物があり若干ややこしくなっているので、新しくシーンを作成します。</p>
+
+<p>シーンを作成するには、以下の操作を行います。</p>
+
+<ul>
+<li>メニューバー(エディタ上のバー)のFileを選択</li>
+<li>New Sceneを選択</li>
+</ul>
+
+
+<p><img  src="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%8F%E3%82%99%E3%83%BC%E3%81%AENew%20Scene.png" alt="メニューバーのNew Scene" /></p>
+
+<p>選択時にダイアログが表示される事があります。これは「遊び場シーンを変更したけど保存しとく？」の意味です。今回は不要なので、「Don't Save(セーブなんてしない)」を選択します。</p>
+
+<p><img  src="%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E3%82%BB%E3%83%BC%E3%83%96%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F.png" alt="シーンをセーブしますか？" /></p>
+
+<p>シーンを新しく作成すると、HierarchyViewにカメラだけのシーンが作成されます。</p>
+
+<p><img  src="%E7%A9%BA%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%B3.png" alt="空のシーン" /></p>
+
+<p>作成したら次は保存しましょう。シーンを保存するには、以下の操作を行います。</p>
+
+<ul>
+<li>メニューバーのFileを選択</li>
+<li>Save Scene... を選択</li>
+</ul>
+
+
+<p>最初の保存時はファイル名前を聞かれます。今回は「戦闘機モデリング.unity」とします。</p>
+
+<p><img  src="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%8B%E3%82%89SaveScene.png" alt="メニューバーからSaveScene" /></p>
+
+<h3>太陽光を作成</h3>
+
+<p>戦闘機を作成する前に、太陽光を作成しておきます。これが無いと、暗くて作業ができません。太陽光を作成するには、以下の操作を行います。</p>
+
+<ul>
+<li>HierarchyのCreateを選択</li>
+<li>Directional Lightを選択</li>
+</ul>
+
+
+<p><img  src="%E3%83%A9%E3%82%A4%E3%83%88%E3%81%AE%E8%BF%BD%E5%8A%A0.png" alt="ライトの追加" /></p>
+
+<p>Directional Lightが作成されますので、名前を「太陽光」としておきましょう。</p>
+
+<p>作業を行ったら、Scene Saveでシーンを保存して下さい。エディタがクラッシュする事もありますので、こま目なセーブを心がけて下さい。</p>
+
+<h2>戦闘機を作成する</h2>
+
+<p>戦闘機を作成します。</p>
+
+<h3>モデルを作成</h3>
+
+<p>戦闘機モデルを作成します。今回は手間を考えかなり簡単なモデルとなります。皆さんなら、もっと良い物が作れると信じていますので、今まで覚えた手順を使ってより格好良くして下さい。</p>
+
+<p>一点注意点として、戦闘機モデルはSceneViewでz軸方向（SceneView右上の青い矢印が向いている方向）を前として下さい。また、この説明文で「***を作成して下さい」といった場合、HierarchyのCreateから作成する操作です。また、指示のない値は変更せずそのままの値を使用します。</p>
+
+<p><img  src="%E5%90%91%E3%81%8D%E3%81%AE%E4%B8%80%E8%87%B4.png" alt="向きの一致" /></p>
+
+<ul>
+<li>Cylinderを作成し、position（x:0, y:0, z:0）のrotation(x:90, y:0, z:0) に設定。名前を「ボディ」とします。</li>
+<li>Sphereを作成し、position(x:0, y:0, z:0)に配置　scaleを(x:0.98, y:0.98, z:0.98)に設定。名前を「コックピット」とします。</li>
+<li>Cylinderを作成し、position(x:0, y:0, z:-0.6)、rotationを(x:90, y:0, z:0)、scaleを(x:1.1, y:0.5, z:1.1)とします。名前は「エンジン」とします。</li>
+<li>Cubeを作成し、position(x:0, y:0, z:-0.5)、scaleを(x:2.1, y:0.1, z:1)とします。名前を「ウィング1」とします。</li>
+<li>Cubeを作成し、positionを(x:0, y:0, z:0)とし、rotationを(x:0, y:45: z:0)、Scaleを(x:1.5, y:0.1, z:1.5)とします。名前を「ウィング2」にします。</li>
+<li>Cylinderを作成し、positionを(x:0, y:0, z:-0.7)とし、Rotationを(x:90, y:0, z:0)、Scaleを(x:1, y:0.5, z:1)とします。名前は「ノズル」にします。</li>
+</ul>
+
+
+<p><img  src="%E6%88%A6%E9%97%98%E6%A9%9F(%E8%89%B2%E7%84%A1%E3%81%97" alt="戦闘機(色無し)" />.png)</p>
+
+<h2>色を設定</h2>
+
+<p>作成したモデルに色を設定します。</p>
+
+<p>Unityで色を塗るには、マテリアル（材質）を使用します。色を変更するには、ProjectViewの「材質」より、指定の色を選んでオブジェクトへドラッグ＆ドロップします。</p>
+
+<ul>
+<li>まずはコックピットを青く塗りましょう。ProjectViewのAssets>材質を開きます。</li>
+<li>青い玉(青.mat)を選択し、Hierarchyの「コックピット」へドラッグ＆ドロップします。</li>
+</ul>
+
+
+<p><img  src="%E8%89%B2%E5%A1%97%E3%82%8A.png" alt="色塗り" /></p>
+
+<p>これでコックピットが青く塗られました。続けて他の色も設定していきます。</p>
+
+<ul>
+<li>ボディ・ウィング１・ウィング２を「緑」に塗る</li>
+<li>エンジンを「黄」に塗る</li>
+<li>ノズルを「赤」に塗る</li>
+</ul>
+
+
+<p><img  src="%E5%A1%97%E8%A3%85%E5%AE%8C%E4%BA%86.png" alt="塗装完了" /></p>
+
+<h2>親子構造を作成する</h2>
+
+<p>戦闘機を作成しましたが、現状だとオブジェクトを動かすのが非常に面倒です。なので、１個のオブジェクトから動かせるように設定し、かつ簡単に量産可能にします。</p>
+
+<p>まずは動かしやすくするため、戦闘機モデル達の親オブジェクトを設定します。こうする事で、親オブジェクトを動かした際に子オブジェクトも一括で動かすことが出来ます。</p>
+
+<p>手順は以下のとおりです。</p>
+
+<ul>
+<li>メニューバー(上のメニュー一覧)のGameObjectを選択します。</li>
+<li>Create Empty（何の機能も無いGameObject）を選択します。名前は「戦闘機」とします。</li>
+<li>「戦闘機」オブジェクトのpositionを(x:0, y:0, z:0)とします。</li>
+<li>先ほど作成した「ボディ」「コックピット」「エンジン」「ウィング１」「ウィング２」「ノズル」をCtrlキーを押しながら選択し、HierarchyViewの「戦闘機」オブジェクトへドラッグ＆ドロップします。</li>
+</ul>
+
+
+<p><img  src="Create%20Empty.png" alt="Create Empty" /></p>
+
+<p>HierarchyViewの「戦闘機」オブジェクトの隣に▼が追加され、親子構造が作成されます。ではゲームを実行し、「戦闘機」オブジェクトの座標を動かしてみて下さい。　一斉にオブジェクトが動く事が確認出来ます。</p>
+
+<p><img  src="%E8%A6%AA%E5%AD%90%E6%A7%8B%E9%80%A0.png" alt="親子構造" /></p>
+
+<p>この際、SceneViewからオブジェクトを選択すると「戦闘機」オブジェクトではなく、選択したオブジェクトが動いてしまう事があります。戦闘機を動かす際はHierarchyから���択するように心がけて下さい。</p>
+
+<h2>プレハブ化する</h2>
+
+<p>戦闘機をプレハブ化します。プレハブとは、オブジェクトの雛形のような物で、これを上手く使う事でオブジェクトを簡単に量産可能にします。</p>
+
+<p>今回は「戦闘機」をプレハブ化します。プレハブ化する手順は以下のとおりです。</p>
+
+<ul>
+<li>HierarchyViewの「戦闘機」オブジェクトを選択し、ProjectViewのAssets/プレハブにドラッグ＆ドロップする</li>
+</ul>
+
+
+<p>成功すると、「戦闘機」オブジェクトの文字が青くなり、プレハブフォルダ以下に「戦闘機」オブジェクトが作成されます。</p>
+
+<p><img  src="%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E5%8C%96.png" alt="プレハブ化" /></p>
+
+<p>次に、プレハブから戦闘機オブジェクトを作成しましょう。</p>
+
+<ul>
+<li>ProjectViewのAssets/プレハブの「戦闘機」オブジェクトをHierarchyViewへドラッグ＆ドロップする。</li>
+</ul>
+
+
+<p>これで「戦闘機」オブジェクトが簡単に量産可能になりました。</p>
+
+<p><img  src="%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E3%81%AE%E9%87%8F%E7%94%A3.png" alt="プレハブの量産" /></p>
+</body>
+</html>

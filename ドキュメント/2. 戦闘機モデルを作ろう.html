@@ -27,12 +27,12 @@ table {
 	margin: 10px 0 15px 0;
 	border-collapse: collapse;
 }
-td,th {
+td,th {	
 	border: 1px solid #ddd;
 	padding: 3px 10px;
 }
 th {
-	padding: 5px 10px;
+	padding: 5px 10px;	
 }
 
 a {
@@ -42,12 +42,8 @@ a:hover {
     color: #0050a3;
     text-decoration: none;
 }
-
-img{
-  max-width: 100%;
-  height: auto;
-}
-
+a img {
+    border: none;
 }
 p {
     margin-bottom: 9px;
@@ -155,7 +151,6 @@ sup {
 		page-break-inside: avoid;
 	}
 }
-
 </style>
 <title>戦闘機モデルを作ろう</title>
 
@@ -165,7 +160,7 @@ sup {
 
 <p>さて、今までの操作を使って簡単なモデルを作成してみましょう。本来はUnityではなく専用のモデリングツールを使用したり、アセットストアからデータをダウンロードするのが一番良いのですが、今回は練習も兼ねて作成します。</p>
 
-<p><img  src="%E6%88%A6%E9%97%98%E6%A9%9F.png" alt="戦闘機" /></p>
+<p><img src="%E6%88%A6%E9%97%98%E6%A9%9F.png" alt="戦闘機" /></p>
 
 <h2>新しいシーンを作成する</h2>
 
@@ -179,15 +174,15 @@ sup {
 </ul>
 
 
-<p><img  src="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%8F%E3%82%99%E3%83%BC%E3%81%AENew%20Scene.png" alt="メニューバーのNew Scene" /></p>
+<p><img src="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%8F%E3%82%99%E3%83%BC%E3%81%AENew%20Scene.png" alt="メニューバーのNew Scene" /></p>
 
 <p>選択時にダイアログが表示される事があります。これは「遊び場シーンを変更したけど保存しとく？」の意味です。今回は不要なので、「Don't Save(セーブなんてしない)」を選択します。</p>
 
-<p><img  src="%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E3%82%BB%E3%83%BC%E3%83%96%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F.png" alt="シーンをセーブしますか？" /></p>
+<p><img src="%E3%82%B7%E3%83%BC%E3%83%B3%E3%82%92%E3%82%BB%E3%83%BC%E3%83%96%E3%81%97%E3%81%BE%E3%81%99%E3%81%8B%EF%BC%9F.png" alt="シーンをセーブしますか？" /></p>
 
 <p>シーンを新しく作成すると、HierarchyViewにカメラだけのシーンが作成されます。</p>
 
-<p><img  src="%E7%A9%BA%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%B3.png" alt="空のシーン" /></p>
+<p><img src="%E7%A9%BA%E3%81%AE%E3%82%B7%E3%83%BC%E3%83%B3.png" alt="空のシーン" /></p>
 
 <p>作成したら次は保存しましょう。シーンを保存するには、以下の操作を行います。</p>
 
@@ -199,7 +194,7 @@ sup {
 
 <p>最初の保存時はファイル名前を聞かれます。今回は「戦闘機モデリング.unity」とします。</p>
 
-<p><img  src="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%8B%E3%82%89SaveScene.png" alt="メニューバーからSaveScene" /></p>
+<p><img src="%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%8B%E3%82%89SaveScene.png" alt="メニューバーからSaveScene" /></p>
 
 <h3>太陽光を作成</h3>
 
@@ -211,7 +206,7 @@ sup {
 </ul>
 
 
-<p><img  src="%E3%83%A9%E3%82%A4%E3%83%88%E3%81%AE%E8%BF%BD%E5%8A%A0.png" alt="ライトの追加" /></p>
+<p><img src="%E3%83%A9%E3%82%A4%E3%83%88%E3%81%AE%E8%BF%BD%E5%8A%A0.png" alt="ライトの追加" /></p>
 
 <p>Directional Lightが作成されますので、名前を「太陽光」としておきましょう。</p>
 
@@ -227,7 +222,7 @@ sup {
 
 <p>一点注意点として、戦闘機モデルはSceneViewでz軸方向（SceneView右上の青い矢印が向いている方向）を前として下さい。また、この説明文で「***を作成して下さい」といった場合、HierarchyのCreateから作成する操作です。また、指示のない値は変更せずそのままの値を使用します。</p>
 
-<p><img  src="%E5%90%91%E3%81%8D%E3%81%AE%E4%B8%80%E8%87%B4.png" alt="向きの一致" /></p>
+<p><img src="%E5%90%91%E3%81%8D%E3%81%AE%E4%B8%80%E8%87%B4.png" alt="向きの一致" /></p>
 
 <ul>
 <li>Cylinderを作成し、position（x:0, y:0, z:0）のrotation(x:90, y:0, z:0) に設定。名前を「ボディ」とします。</li>
@@ -239,7 +234,7 @@ sup {
 </ul>
 
 
-<p><img  src="%E6%88%A6%E9%97%98%E6%A9%9F(%E8%89%B2%E7%84%A1%E3%81%97" alt="戦闘機(色無し)" />.png)</p>
+<p><img src="%E6%88%A6%E9%97%98%E6%A9%9F(%E8%89%B2%E7%84%A1%E3%81%97" alt="戦闘機(色無し)" />.png)</p>
 
 <h2>色を設定</h2>
 
@@ -253,7 +248,7 @@ sup {
 </ul>
 
 
-<p><img  src="%E8%89%B2%E5%A1%97%E3%82%8A.png" alt="色塗り" /></p>
+<p><img src="%E8%89%B2%E5%A1%97%E3%82%8A.png" alt="色塗り" /></p>
 
 <p>これでコックピットが青く塗られました。続けて他の色も設定していきます。</p>
 
@@ -264,7 +259,7 @@ sup {
 </ul>
 
 
-<p><img  src="%E5%A1%97%E8%A3%85%E5%AE%8C%E4%BA%86.png" alt="塗装完了" /></p>
+<p><img src="%E5%A1%97%E8%A3%85%E5%AE%8C%E4%BA%86.png" alt="塗装完了" /></p>
 
 <h2>親子構造を作成する</h2>
 
@@ -282,13 +277,13 @@ sup {
 </ul>
 
 
-<p><img  src="Create%20Empty.png" alt="Create Empty" /></p>
+<p><img src="Create%20Empty.png" alt="Create Empty" /></p>
 
 <p>HierarchyViewの「戦闘機」オブジェクトの隣に▼が追加され、親子構造が作成されます。ではゲームを実行し、「戦闘機」オブジェクトの座標を動かしてみて下さい。　一斉にオブジェクトが動く事が確認出来ます。</p>
 
-<p><img  src="%E8%A6%AA%E5%AD%90%E6%A7%8B%E9%80%A0.png" alt="親子構造" /></p>
+<p><img src="%E8%A6%AA%E5%AD%90%E6%A7%8B%E9%80%A0.png" alt="親子構造" /></p>
 
-<p>この際、SceneViewからオブジェクトを選択すると「戦闘機」オブジェクトではなく、選択したオブジェクトが動いてしまう事があります。戦闘機を動かす際はHierarchyから���択するように心がけて下さい。</p>
+<p>この際、SceneViewからオブジェクトを選択すると「戦闘機」オブジェクトではなく、選択したオブジェクトが動いてしまう事があります。戦闘機を動かす際はHierarchyから選択するように心がけて下さい。</p>
 
 <h2>プレハブ化する</h2>
 
@@ -303,7 +298,7 @@ sup {
 
 <p>成功すると、「戦闘機」オブジェクトの文字が青くなり、プレハブフォルダ以下に「戦闘機」オブジェクトが作成されます。</p>
 
-<p><img  src="%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E5%8C%96.png" alt="プレハブ化" /></p>
+<p><img src="%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E5%8C%96.png" alt="プレハブ化" /></p>
 
 <p>次に、プレハブから戦闘機オブジェクトを作成しましょう。</p>
 
@@ -314,6 +309,6 @@ sup {
 
 <p>これで「戦闘機」オブジェクトが簡単に量産可能になりました。</p>
 
-<p><img  src="%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E3%81%AE%E9%87%8F%E7%94%A3.png" alt="プレハブの量産" /></p>
+<p><img src="%E3%83%97%E3%83%AC%E3%83%8F%E3%83%96%E3%81%AE%E9%87%8F%E7%94%A3.png" alt="プレハブの量産" /></p>
 </body>
 </html>
